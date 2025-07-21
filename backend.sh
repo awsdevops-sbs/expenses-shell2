@@ -1,11 +1,10 @@
 dnf module disable nodejs -y
 dnf module enable nodejs:20 -y
-
 dnf install nodejs -y
 
-
-cp backend.service /etc/systemd/system/backend.service
 useradd expense
+cp backend.service /etc/systemd/system/backend.service
+
 
 rm -rf /app
 mkdir /app
@@ -18,10 +17,8 @@ cd /app
 npm install
 
 systemctl daemon-reload
-
 systemctl enable backend
 systemctl start backend
 
 dnf install mysql -y
-
-sudo mysql -h 172.31.17.214  -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h 172.31.17.214  -uroot -pExpenseApp@1 < /app/schema/backend.sql
