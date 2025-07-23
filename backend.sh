@@ -6,7 +6,6 @@ if [ -z "${My_root_password}" ]; then
 
   echo "Input Password Missing" &>>$Log
   exit 1
-
   fi
 
 Print_Task_Heading "Enable Default NodeJs version module"
