@@ -3,7 +3,7 @@ Description = Backend Service
 
 [Service]
 User=expense
-Environment=DB_HOST="backend.awsdevops.sbs"
+Environment=DB_HOST="mysql-dev.awsdevops.sbs"
 ExecStart=/bin/node /app/index.js
 SyslogIdentifier=backend
 
