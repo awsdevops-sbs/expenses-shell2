@@ -1,5 +1,10 @@
 
 source common.sh
+
+appdir=/app
+
+component=backend
+
 My_root_password=$1
 
 if [ -z "${My_root_password}" ]; then
@@ -35,22 +40,7 @@ cp backend.service /etc/systemd/system/backend.service &>>$Log
 Check_Status $?
 
 
-Print_Task_Heading "Clean old content"
-rm -rf /app &>>$Log
-Check_Status $?
-
-Print_Task_Heading "Create App directory"
-mkdir /app &>>$Log
-Check_Status $?
-
-Print_Task_Heading "Download App content"
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip &>>$Log
-Check_Status $?
-
-Print_Task_Heading "Extract App content"
-cd /app &>>$Log
-unzip /tmp/backend.zip &>>$Log
-Check_Status $?
+App_PreReq
 
 Print_Task_Heading "Download NodeJs dependencies"
 cd /app &>>$Log
