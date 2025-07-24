@@ -4,7 +4,7 @@ My_root_password=$1
 
 if [ -z "${My_root_password}" ]; then
 
-  echo "Input Password Missing".
+  echo "Input Password missing".
   exit 1
   fi
 
