@@ -21,7 +21,7 @@ Print_Task_Heading(){
 
 
       Print_Task_Heading "Clean old content"
-      rm -rf ${appdir}/app &>>$Log
+      rm -rf ${appdir} &>>$Log
       Check_Status $?
 
       Print_Task_Heading "Create App directory"
