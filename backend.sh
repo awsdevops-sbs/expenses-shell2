@@ -55,7 +55,10 @@ Check_Status $?
 
 
 
-Print_Task_Heading "Install Mysql"
+Print_Task_Heading "Install Mysql client"
 dnf install mysql -y &>>$Log
-mysql -h 172.31.17.214  -uroot -p${My_root_password} < /app/schema/backend.sql &>>$Log
+Check_Status $?
+
+Print_Task_Heading "Load Schema"
+mysql -h mysql-dev.awsdevops.sbs   -uroot -p${My_root_password} < /app/schema/backend.sql &>>$Log
 Check_Status $?
