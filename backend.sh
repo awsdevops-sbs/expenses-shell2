@@ -56,9 +56,9 @@ Check_Status $?
 
 
 Print_Task_Heading "Install Mysql client"
-dnf install mysql -y &>>$Log
+dnf install mysql.yml -y &>>$Log
 Check_Status $?
 
 Print_Task_Heading "Load Schema"
-mysql -h mysql-dev.awsdevops.sbs   -uroot -p${My_root_password} < /app/schema/backend.sql &>>$Log
+mysql.yml -h mysql.yml-dev.awsdevops.sbs   -uroot -p${My_root_password} < /app/schema/backend.sql &>>$Log
 Check_Status $?

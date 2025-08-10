@@ -8,7 +8,7 @@ if [ -z "${My_root_password}" ]; then
 fi
 
 Print_Task_Heading "Install MySQL server"
-dnf install mysql-server -y &>>$Log
+dnf install mysql.yml-server -y &>>$Log
 Check_Status $?
 
 Print_Task_Heading "Enable and Start MySQL server"
@@ -17,7 +17,7 @@ systemctl start mysqld &>>$Log
 Check_Status $?
 
 Print_Task_Heading "Setup MySql password"
-echo 'show databases' | mysql -h mysql-dev.awsdevops.sbs -uroot -p${My_root_password} &>>$Log
+echo 'show databases' | mysql.yml -h mysql.yml-dev.awsdevops.sbs -uroot -p${My_root_password} &>>$Log
 if [ $? -ne 0 ]; then
 sudo mysql_secure_installation --set-root-pass ${My_root_password} &>>$Log
 
